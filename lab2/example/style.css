@@ -1,0 +1,36 @@
+@font-face {
+    font-family: myWebFont;
+    src: url(fonts/Mali-Regular.ttf);
+}
+@font-face {
+    font-family: myWebFont2;
+    src: url(fonts/ChakraPetch-Regular.ttf);
+}
+.center {
+    margin: auto;
+    width: 90%;
+}    
+body {
+    /* font-family: myWebFont; */
+    font-family: "Mitr", sans-serif;
+    font-size: 24px;
+}
+h1 {
+    font-family: myWebFont2;
+    color: brown;
+}
+h2 {
+    color: green;
+}
+img{
+    display: block;
+    border-radius: 20px;
+}
+.bgcolor {
+    background-color: lightyellow;
+    padding: 15px;
+    border-radius: 20px;
+}
+td, th {
+    border-bottom: black 1px solid;
+}

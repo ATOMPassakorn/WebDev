@@ -12,25 +12,22 @@
 </head>
 
 <body>
-    <h1>User Registration</h1>
-    <form id="myForm">
-        <p><label for='Username'>Username:</label>
+    <div class="registration-form">
+        <h1>User Registration</h1>
+        <form id="myForm">
+            <p><label for='Username'>Username:</label></p>
             <input type="text" id="Username" name="Username" />
-        </p>
-        <p><label for='Email'>Email:</label>
-            <input type="email" id="Email" name="Email" placeholder="e.g., user@example.com"/>
-        </p>
-        <p><label for='Phone'>Phone:</label>
-            <input type="tel" id="Phone" name="Phone" placeholder="e.g., 555-555-5555"/>
-        </p>
-        <p><label for='Password'>Password:</label>
+            <p><label for='Email'>Email:</label></p>
+            <input type="email" id="Email" name="Email" placeholder="e.g., user@example.com" />
+            <p><label for='Phone'>Phone:</label></p>
+            <input type="tel" id="Phone" name="Phone" placeholder="e.g., 555-555-5555" />
+            <p><label for='Password'>Password:</label></p>
             <input type="password" id="Password" name="Password" />
-        </p>
-        <p><label for='Confirm Password'>Confirm Password:</label>
+            <p><label for='Confirm Password'>Confirm Password:</label></p>
             <input type="password" id="ConfirmPassword" name="ConfirmPassword" />
-        </p>
-        <button type="submit" onclick="validateForm()">Register</button>
-    </form>
+            <button type="submit" onclick="validateForm()">Register</button>
+        </form>
+    </div>
     <script src="script.js"></script>
 </body>
 

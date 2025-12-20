@@ -1,7 +1,6 @@
 function validateForm() {
 
     let Username = document.getElementById("Username").value;
-
     if (Username.length < 5) {
         alert("Username length must be at least 5 characters.");
         return false;
@@ -31,23 +30,23 @@ function validateForm() {
         return regex.test(Phone);
     }
     let Phone = document.getElementById("Phone").value
-    if (!isValidPhoneNumber(Phone)){
+    if (!isValidPhoneNumber(Phone)) {
         alert("Phone Number is invalid. Check individual fields.");
         return false;
     }
 
     function isValidPassword(Password) {
         const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        return passRegex.test(Password); 
+        return passRegex.test(Password);
     }
     let Password = document.getElementById("Password").value
-    if (!isValidPassword(Password)){
+    if (!isValidPassword(Password)) {
         alert("Password must be at least 8 characters with 1 lowercase, 1 uppercase, 1 digit, and 1 special character.");
         return false;
     }
 
     let Confirm = document.getElementById("ConfirmPassword").value
-    if (Confirm!=Password){
+    if (Confirm != Password) {
         alert("Passwords do not match.");
         return false;
     }

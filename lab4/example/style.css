@@ -1,0 +1,12 @@
+/* ul{
+    background-color: lightblue;
+} */
+
+table,
+tr,
+th,
+td {
+    padding: 8px;
+    border: black 1px solid;
+    border-collapse: collapse;
+}

@@ -1,0 +1,33 @@
+* {
+    font-family: "Inter", sans-serif;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.card a {
+    display: block;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+@media screen and (max-width:700px) {
+    .container {
+        flex-direction: column;
+    }
+}

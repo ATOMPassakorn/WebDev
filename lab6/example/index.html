@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6 JSON</title>
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            padding: 8px;
+            border: black 1px solid;
+            border-collapse: collapse;
+        }
+
+        th{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p id="out"></p>
+    <script>
+        let person = {
+            "firstname": "John",
+            "lastname": "Doe",
+            "age": 30,
+            "cars": ["Toyota", "BMW", "BVD", "Honda", "Hyndai"]
+        };
+        let text = person.firstname + " " + person.lastname + " is " + person.age + " years old.";
+        person.cars.forEach((car) => {
+            text += " - " + car + "<br>";
+        });
+        document.getElementById("out").innerHTML = text;
+    </script> -->
+
+    <!-- <div id="div1"></div>
+
+    <script>
+        function your_function_name(data) {
+            // your code 
+            let text = "Squadname : " +data.squadName + "<br>";
+            text += "Hometown : " + data.homeTown + "<br>";
+            data.members.forEach(member => {
+                text += "Name : " + member.name +" ( "+member.age+" )"+ "<br>";
+                member.powers.forEach(power =>{
+                    text += "* " + power + "<br>";
+                });
+            });
+            document.getElementById("div1").innerHTML = text;
+        }
+
+        fetch('superheroes.json')
+            .then(response => response.json())
+            .then(data => your_function_name(data))
+            .catch(error => console.log('error', error));
+    </script> -->
+
+    <h1>Order Detail</h1>
+    <div id="orderId"></div>
+    <div id="orderDate"></div>
+    <div id="customer"></div>
+    <div id="email"></div>
+    <div id="table"></div>
+    <h1>Shipping</h1>
+    <div id="shipping"></div>
+
+    <script>
+        const table = document.createElement("table");
+
+        const row1 = document.createElement("tr");
+
+        const head1 = document.createElement("th");
+        const texthead1 = document.createTextNode("ID");
+        head1.appendChild(texthead1);
+
+        const head2 = document.createElement("th");
+        const texthead2 = document.createTextNode("Product");
+        head2.appendChild(texthead2);
+
+        const head3 = document.createElement("th");
+        const texthead3 = document.createTextNode("Quantity");
+        head3.appendChild(texthead3);
+
+        const head4 = document.createElement("th");
+        const texthead4 = document.createTextNode("Price");
+        head4.appendChild(texthead4);
+
+        const head5 = document.createElement("th");
+        const texthead5 = document.createTextNode("Total");
+        head5.appendChild(texthead5);
+
+        row1.appendChild(head1);
+        row1.appendChild(head2);
+        row1.appendChild(head3);
+        row1.appendChild(head4);
+        row1.appendChild(head5);
+        table.appendChild(row1);
+        document.getElementById("table").appendChild(table);
+
+        function your_function_name(data) {
+            document.getElementById("orderId").innerHTML = "orderId : " + data.orderId;
+            document.getElementById("orderDate").innerHTML = "Order Date : " + data.orderDate;
+            document.getElementById("customer").innerHTML = "Customer : " + data.customer.name;
+            document.getElementById("email").innerHTML = "Email : " + data.customer.email;
+            document.getElementById("shipping").innerHTML = "Address : " + data.shipping.address.street + ", " + data.shipping.address.city + ", " + data.shipping.address.state + ", " + data.shipping.address.zipCode;
+
+            data.items.forEach(item => {
+                const row2 = document.createElement("tr");
+
+                const column1 = document.createElement("td");
+                column1.appendChild(document.createTextNode(item.productId.slice(7)));
+                row2.appendChild(column1);
+
+                const column2 = document.createElement("td");
+                column2.appendChild(document.createTextNode(item.name));
+                row2.appendChild(column2);
+
+                const column3 = document.createElement("td");
+                column3.appendChild(document.createTextNode(item.quantity));
+                row2.appendChild(column3);
+
+                const column4 = document.createElement("td");
+                column4.appendChild(document.createTextNode("$" + item.price));
+                row2.appendChild(column4);
+
+                const column5 = document.createElement("td");
+                column5.appendChild(document.createTextNode("$" + item.quantity * item.price));
+                row2.appendChild(column5);
+
+                table.appendChild(row2)
+            });
+        }
+        fetch('order.json')
+            .then(response => response.json())
+            .then(data => your_function_name(data))
+            .catch(error => console.log('error', error));
+    </script>
+
+    <!-- <form id="myForm">
+        <div><label for='FirstName'>First Name:</label>
+            <input type="text" id="FirstName" name="FirstName" />
+        </div>
+        <div><label for='LastName'>Last Name:</label>
+            <input type="text" id="LastName" name="LastName" />
+        </div>
+        <div><label for='Country'>Country:</label>
+            <select id="Country" name="Country">
+                <option value="000" selected="selected">-Select-</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Laos">Laos</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="Brunei">Brunei</option>
+                <option value="Indonesia">Indonesia</option>
+            </select>
+        </div>
+    </form>
+    <button onclick="SaveForm()">Save data</button>
+    <button onclick="LoadData()">Show data</button>
+    <script>
+
+        function SaveForm() {
+            let fname = document.getElementById("FirstName").value;
+            let lname = document.getElementById("LastName").value;
+            let country = document.getElementById("Country").value
+            // save data to local storage
+            localStorage.setItem('userFirstName', fname);
+            localStorage.setItem('userLastName', lname);
+            localStorage.setItem('userCountry', country);
+            alert("Data saved");
+        }
+        function LoadData() {
+            // load data from local storage
+            let fn = localStorage.getItem('userFirstName');
+            let ln = localStorage.getItem('userLastName');
+            let cty = localStorage.getItem('userCountry');
+            document.getElementById("FirstName").value = fn;
+            document.getElementById("LastName").value = ln;
+            document.getElementById("Country").value = cty;
+
+            localStorage.clear();
+        }
+    </script> -->
+</body>
+
+</html>

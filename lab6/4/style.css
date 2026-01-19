@@ -1,0 +1,80 @@
+*{
+    font-family: 'Prompt';
+}
+
+body {
+    background: #f2f3f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.top {
+    display: flex;
+    gap: 12px;
+}
+
+.top input {
+    flex: 1;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.add {
+    background: #0984e3;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.clear {
+    margin-top: 12px;
+    float: right;
+    background: #0984e3;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.list {
+    margin-top: 70px;
+}
+
+.list p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f7f7f7;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    font-size: 16px;
+}
+
+.list button {
+    background: #d63031;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}

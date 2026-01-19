@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'segoeuithis';
+    src: url(font/segoeuithis.ttf);
+}
+
+*{
+    font-family: 'segoeuithis';
+}

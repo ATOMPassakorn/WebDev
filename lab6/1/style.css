@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'segoeuithis';
+    src: url(font/segoeuithis.ttf);
+}
+
+*{
+    font-family: 'segoeuithis';
+}
+
+table,
+tr{
+    border: lightgray 1px solid;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th,td{
+    text-align: left;
+    padding: 10px;
+}
+
+#table tr:nth-child(odd){
+    background-color: whitesmoke;
+}

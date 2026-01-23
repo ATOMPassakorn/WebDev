@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "displayName": "Nancy Davolio",
+    "idCard": "1100101234561",
+    "title": "Ms.",
+    "firstName": "Nancy",
+    "lastName": "Davolio",
+    "email": "nancy.davolio@example.com"
+  },
+  {
+    "id": 2,
+    "displayName": "Andrew Fuller",
+    "idCard": "1100101234562",
+    "title": "Mr.",
+    "firstName": "Andrew",
+    "lastName": "Fuller",
+    "email": "andrew.fuller@example.com"
+  },
+  {
+    "id": 3,
+    "displayName": "Janet 123",
+    "idCard": "1100101234563",
+    "title": "Ms.",
+    "firstName": "Janet123", 
+    "lastName": "Leverling",
+    "email": "janet.l@example.com"
+  },
+  {
+    "id": 4,
+    "displayName": "Margaret",
+    "idCard": "1100101234564",
+    "title": "Mrs.",
+    "firstName": "Margaret",
+    "lastName": "Peacock",
+    "email": "margaret.example.com"
+  },
+  {
+    "id": 5,
+    "displayName": "Steven",
+    "idCard": "1100101234565",
+    "title": "Mr.",
+    "firstName": "Steven",
+    "lastName": "Buchanan",
+    "email": "s@a"
+  }
+]

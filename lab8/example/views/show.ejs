@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show data</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            font-size: 24px;
+        }
+        table{
+            width: 100%;
+        }
+        table,th,td{
+            border-bottom: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        th,td{
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- สร้างตารางสำหรับแสดงข้อมูล -->
+    <!-- EJS Syntax -->
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Dept Name</th>
+            <th>Salary</th>
+        </tr>
+        <% data.forEach((item)=>{ %>
+
+        <tr>
+            <td><%= item.ID %></td>
+            <td><%= item.name %></td>
+            <td><%= item.dept_name %></td>
+            <td><%= item.salary%></td>
+        </tr>
+    
+        <% }); %>
+    </table>
+</body>
+
+</html>

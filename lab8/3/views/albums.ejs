@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- สร้างตารางสำหรับแสดงข้อมูล -->
+    <!-- EJS Syntax -->
+     <h1>The most popular albums</h1>
+    <div class="container">
+        <% data.forEach((item) => { %>
+            <div class="card">
+                <img src="<%= item.album_cover %>" alt="">
+                <h2>Artist: <%= item.artist %></h2>
+                <p>Album: <%= item.album %> (<%= item.year %>)</p>
+                <p>Genre: <%= item.genre %></p>
+            </div>
+        <% }); %>
+    </div>
+</body>
+
+</html>

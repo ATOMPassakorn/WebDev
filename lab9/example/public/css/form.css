@@ -1,0 +1,50 @@
+* {
+    font-family: "Prompt", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+.registration-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.registration-form h1{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.registration-form p{
+    margin-bottom: 2px;
+}
+
+.registration-form input{
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.registration-form button{
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 10px 15px;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+}

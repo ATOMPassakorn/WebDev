@@ -1,0 +1,53 @@
+<!-- home.ejs -->
+<!doctype html>
+<html lang="en">
+
+<%- include("head.ejs") %>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        table{
+            width: 100%;
+        }
+        table,th,td{
+            border-bottom: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        th,td{
+            text-align: left;
+        }
+    </style>
+
+    <body>
+        <!-- heaher -->
+        <%- include("header.ejs") %>
+        <!-- Content -->
+        <!-- สร้างตารางสำหรับแสดงข้อมูล -->
+        <table>
+        <tr>
+            <th>EmployeeId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Title</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        <% data.forEach((item)=>{ %>
+
+        <tr>
+            <td><%= item.EmployeeId %></td>
+            <td><%= item.FirstName %></td>
+            <td><%= item.LastName %></td>
+            <td><%= item.Title %></td>
+            <td><%= item.Phone %></td>
+            <td><%= item.Email %></td>
+            <td><a href="/delete/<%= item.EmployeeId %>">Delete</a></td>
+        </tr>
+        <% }); %>
+    </table>
+    <!-- footer -->
+    <%- include("footer.ejs") %>
+    </body>
+
+</html>

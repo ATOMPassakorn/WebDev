@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <style>
+        table{
+            width: 100%;
+        }
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .add{
+            color: white;
+            background-color: green;
+            cursor: pointer;
+        }
+        .update{
+            color: white;
+            background-color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>📦 ระบบติดตามคำสั่งซื้อ</h1>
+    <form action="/add-order" method="POST">
+        <input type="text" placeholder="ชื่อลูกค้า" name="customer">
+        <input type="text" placeholder="รายการสินค้า" name="product">
+        <input type="text" placeholder="ที่อยู่" name="address">
+        <input type="tel" placeholder="เบอร์โทร" name="phone">
+        <button class="add" type="submit">เพิ่มคำสั่งซื้อ</button>
+    </form>
+    <hr>
+    <h1>รายการคำสั่งซื้อ</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>ลูกค้า</th>
+            <th>สินค้า</th>
+            <th>สถานะ</th>
+            <th>เปลี่ยนสถานะ</th>
+        </tr>
+        <% data.forEach(function(order) { %>
+        <tr>
+            <td><%= order.ID %></td>
+            <td><%= order.Customer %></td>
+            <td><%= order.Product %></td>
+            <td><%= order.Status %></td>
+            <td>
+                <form action="/update-status" method="POST" style="display:inline;">
+                    <input type="hidden" name="id" value="<%= order.ID %>">
+                    <select name="status">
+                        <option value="รอดำเนินการ" <%= order.Status === 'รอดำเนินการ' ? 'selected' : '' %>>รอดำเนินการ</option>
+                        <option value="กำลังจัดส่ง" <%= order.Status === 'กำลังจัดส่ง' ? 'selected' : '' %>>กำลังจัดส่ง</option>
+                        <option value="จัดส่งแล้ว" <%= order.Status === 'จัดส่งแล้ว' ? 'selected' : '' %>>จัดส่งแล้ว</option>
+                        <option value="ยกเลิก" <%= order.Status === 'ยกเลิก' ? 'selected' : '' %>>ยกเลิก</option>
+                    </select>
+                    <button type="submit" class="update">อัปเดต</button>
+                </form>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+</body>
+</html>

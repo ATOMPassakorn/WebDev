@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees list</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            font-size: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/card.css">
+</head>
+<body>
+    <h1>Panda Company - Employee List</h1>
+    <div class="container">
+        <% data.forEach((item)=>{ %>
+        <div class="card">
+            <img src="http://webdev.it.kmitl.ac.th:4000/emp-images/<%=item.EmployeeID%>.png" alt="">
+            <h1><%=item.FirstName%> <%=item.LastName%></h1>
+            <button>Datail</button>
+        </div>
+        <% }); %> 
+    </div>
+</body>
+</html>

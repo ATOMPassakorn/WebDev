@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos List</title>
+    <style>
+        table{
+            width: 100%;
+        }
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        th,td{
+            text-align: left;
+        }
+        th{
+            background-color: whitesmoke;
+        }
+        button{
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 10px;
+            float: right;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- สร้างตารางสำหรับแสดงข้อมูล -->
+    <!-- EJS Syntax -->
+    <h1>Todos List <a href="/form"><button>Add Todo</button></a></h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Deadline</th>
+            <th>Complete</th>
+        </tr>
+        <% data.forEach((item)=>{ %>
+        <tr>
+            <td><%= item.ID %></td>
+            <td><%= item.Title %></td>
+            <td><%= item.Deadline %></td>
+            <td><input type="checkbox" class="todo-checkbox" data-id="<%= item.ID %>" <%= item.Complete ? 'checked' : '' %>></td>
+        </tr>
+        <% }); %>
+    </table>
+    <script>
+        document.querySelectorAll('.todo-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const id = this.getAttribute('data-id');
+                const isComplete = this.checked ? 1 : 0;
+
+                fetch(`/update/${id}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ complete: isComplete })
+                })
+                    .then(res => {
+                        if (!res.ok) alert('Update failed!');
+                    })
+                    .catch(err => console.error(err));
+            });
+        });
+    </script>
+</body>
+
+</html>

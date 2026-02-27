@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <!-- รูปภาพอยู่ใน http://webdev.it.kmitl.ac.th/phone-images/ -->
+
+    <body>
+        <ul class="menu">
+        <li><a href="/">Product</a></li>
+        <li><a href="/cart">Cart</a></li>
+        </ul>
+        <div class="container">
+        <% data.forEach((item)=>{ %>
+        <div class="card">
+            <img src="http://webdev.it.kmitl.ac.th/phone-images/<%=item.pimage%>" alt="">
+            <h3><%=item.name%></h3>
+            <p>Price: <%=item.price%></p>
+            <p>Storage: <%=item.storage%></p>
+            <p>Camera: <%=item.camera%></p>
+            <a href="/add-to-cart/<%= item.id %>"><button>Add to Cart</button></a>
+        </div>
+        <% }); %> 
+    </div>
+    </body>
+</body>
+
+</html>

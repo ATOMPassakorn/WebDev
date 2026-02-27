@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+        table{
+            width: 100%;
+        }
+        table,th,td{
+            border-bottom: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        th,td{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <% let sum = 0; %>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Price</th>
+        </tr>
+        <% data.forEach((item,i)=>{ %>
+
+        <tr>
+            <!-- <td><%= item.id %></td> -->
+             <td><%= i+1 %></td>
+            <td><%= item.name %></td>
+            <td>1</td>
+            <td><%= item.price %></td>
+            <% sum += item.price %>
+        </tr>
+        <% }); %>
+    </table>
+        <p>Total: <%= sum.toLocaleString("en-US") %></p>
+        <a href="/"><button>Product</button></a>
+        <a href="/clear-cart"><button>Clear cart</button></a>
+</body>
+</html>

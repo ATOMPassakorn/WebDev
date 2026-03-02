@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+        table{
+            width: 70%;
+            margin: auto;
+        }
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        th,td{
+            text-align: center;
+        }
+        th{
+            background-color: white;
+        }
+        tr:nth-child(odd){
+            background-color: whitesmoke;
+        }
+        h2{
+            text-align: center;
+        }
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+        button{
+            color: white;
+            background-color: purple;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: rgb(66, 0, 66);
+        }
+    </style>
+</head>
+<body>
+    <%- include('nav.ejs') %>
+    <% let sum = 0; %>
+    <h1>List of Items</h1>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Price</th>
+        </tr>
+        <% data.forEach((item,i)=>{ %>
+
+        <tr>
+            <!-- <td><%= item.id %></td> -->
+            <td><%= i+1 %></td>
+            <td><%= item.name %></td>
+            <td><%= item.qty %></td>
+            <td><%= item.price * item.qty %></td>
+            <% sum += item.price * item.qty %>
+        </tr>
+        <% }); %>
+    </table>
+        <h2>Total Price: <%= sum.toLocaleString("en-US") %> THB</h2>
+        <a href="/clear-cart"><button>Confirm Order</button></a>
+</body>
+</html>

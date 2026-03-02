@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information</title>
+    <style>
+        button{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee Information</h1>
+    <form action="/set-cookie" method="POST">
+            <p>Employee ID :</p>
+            <input type="text" name="CustomerId" value="<%= employee.CustomerId || '' %>"> <br>
+            <p>Firstname :</p>
+            <input type="text" name="FirstName" value="<%= employee.FirstName || '' %>"> <br>
+            <p>Lastname :</p>
+            <input type="text" name="LastName" value="<%= employee.LastName || '' %>"> <br>
+            <p>Address :</p>
+            <textarea name="Address"><%= employee.Address || '' %></textarea> <br>
+            <p>Email :</p>
+            <input type="text" name="Email" value="<%= employee.Email || '' %>"> <br>
+            <p>Phone :</p>
+            <input type="text" name="Phone" value="<%= employee.Phone || '' %>"> <br>
+            <button type="submit">Save data</button> 
+            <button type="button" onclick="location.href='/get-cookie'">Show data</button>
+            <button type="button" onclick="location.href='/clear-cookie'">Clear data</button>
+        </form>
+</body>
+</html>

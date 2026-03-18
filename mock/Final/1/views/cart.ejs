@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+        table{
+            width: 70%;
+            margin: auto;
+        }
+
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        th,td{
+            text-align: center;
+        }
+
+        th{
+            background-color: white;
+        }
+
+        tr:nth-child(odd){
+            background-color: whitesmoke;
+        }
+
+        h1,h2{
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            min-width: 100px;
+            color: white;
+            background-color: purple;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover{
+            background-color: rgb(66, 0, 66);
+        }
+
+        .btn-clear {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-clear:hover {
+            background-color: #a71d2a;
+        }
+
+    </style>
+</head>
+<body>
+    <%- include('nav.ejs') %>
+    <% let sum = 0; %>
+    <h1>List of Items</h1>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Price</th>
+        </tr>
+        <% data.forEach((item,i)=>{ %>
+
+        <tr>
+            <td><%= i+1 %></td>
+            <td><%= item.name %></td>
+            <!-- <td>1</td> มานพสอน fix 1-->
+            <!-- จำนวนเพิ่มตามที่กดใส่ cart -->
+            <td><%= item.qty %></td>
+            <td><%= item.price %></td>
+            <% sum += item.price %>
+        </tr>
+        <% }); %>
+    </table>
+        <h2>Total: <%= sum.toLocaleString("en-US") %></h2>
+        <div class="button-group">
+            <a href="/menu"><button>Menu</button></a>
+            <form action="/clear-cart" method="POST" style="display: inline;">
+                <button type="submit" class="btn-clear">Clear cart</button>
+            </form>
+        </div>
+</body>
+</html>

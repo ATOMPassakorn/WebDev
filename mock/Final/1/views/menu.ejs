@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="css/card.css">
+</head>
+<body>
+    <%- include('nav.ejs') %>
+    <div class="container">
+        <% data.forEach((item)=>{ %>
+            <div class="card">
+                <img src="<%=item.image_url%>" alt="">
+                <h2><%=item.name%></h2>
+                <p><%=item.description%></p>
+                <p style="color: red;">Price: <%=item.price%> THB</p>
+                <div class="card-buttons">
+                    <a href="/detail/<%= item.product_id %>" class="btn-detail"><button>Detail</button></a>
+                    <a href="/add-to-cart/<%= item.product_id %>" class="btn-add"><button>Add to Cart</button></a>
+                </div>
+            </div>
+        <% }); %> 
+    </div>
+</body>
+</html>

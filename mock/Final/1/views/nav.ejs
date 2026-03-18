@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="/css/navbar.css">
+<ul class="menu">
+    <li><a href="/menu">Menu</a></li>
+    <li><a href="/cart">Cart</a></li>
+    <li class="logout-item">
+        <form action="/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </li>
+    <li class="user-info"><p>User: <%= username %></p></li>
+</ul>

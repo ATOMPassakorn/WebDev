@@ -17,7 +17,7 @@ app.use(session({
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true }));
 
 // Connect to SQLite database
 let userdata = new sqlite3.Database('userdata.db', (err) => {
@@ -93,14 +93,24 @@ app.get('/register',(req,res) => {
 app.post('/register-form', (req, res) => {
     // read data from query string 
 
-    const { username, email, password } = req.body;
+    const { username, email, password, confirm_password } = req.body;
+
+    if(confirm_password!=password){
+        return res.send(`
+                <script>
+                    alert("รหัสผ่านไม่ตรงกัน");
+                    window.history.back();
+                </script>
+            `);
+    }
 
     const insertSql = "INSERT INTO Users (username, email, password) VALUES (?, ?, ?)";
 
     userdata.run(insertSql,[username, email, password], (err, result) =>{
         if (err) {
             console.error(err.message);
-        } else {
+        } 
+        else {
             console.log("register success");
             res.redirect('/');
         }
@@ -212,7 +222,7 @@ app.get('/cart', (req, res) => {
         .then(wsdata => {
             const result = wsdata.filter(item => itemIds.includes(item.product_id.toString())).map(item => {
                     return { ...item, qty: cart[item.product_id] };
-                });;
+                });
 
             if (result) {
                 res.render('cart', { data: result, username: req.session.username});
@@ -228,7 +238,7 @@ app.get('/cart', (req, res) => {
 
 // Clear cart
 app.post('/clear-cart', (req, res) => {
-    req.session.cart = [];
+    req.session.cart = {};
     console.log('Cart cleared!');
     res.redirect('/cart');
 });

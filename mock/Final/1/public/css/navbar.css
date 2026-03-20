@@ -4,10 +4,6 @@ body {
   font-family: sans-serif;
 }
 
-h2, p ,h1{
-  margin: 10px;
-}
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -30,10 +26,6 @@ ul li a {
 
 ul li a:hover:not(.active) {
   background-color: #111111;
-}
-
-ul li a.active {
-  background-color: #04AA6D;
 }
 
 .user-info, .logout-item {
